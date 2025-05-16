@@ -137,22 +137,30 @@ def nav():
     return clicked or "Home"
 
 def main():
-    st.markdown("<div style='margin-top: -2rem;'>", unsafe_allow_html=True)
-    section = nav()
-    st.markdown("</div>", unsafe_allow_html=True)
+    try:
+        st.markdown("<div style='margin-top: -2rem;'>", unsafe_allow_html=True)
+        section = nav()
+        st.markdown("</div>", unsafe_allow_html=True)
 
-    if section == "Home":
-        home()
-    elif section == "Experience":
-        experience()
-    elif section == "Achievements":
-        achievements()
-    elif section == "Education":
-        education()
-    elif section == "Skills":
-        skills()
-    elif section == "Projects":
-        projects()
+        st.write(f"🔍 Current section: {section}")  # Debug: Show selected section
+
+        if section == "Home":
+            home()
+        elif section == "Experience":
+            experience()
+        elif section == "Achievements":
+            achievements()
+        elif section == "Education":
+            education()
+        elif section == "Skills":
+            skills()
+        elif section == "Projects":
+            projects()
+        else:
+            st.error(f"Unknown section: {section}")
+    except Exception as e:
+        st.error(f"⚠️ An unexpected error occurred in `main()`: {e}")
 
 if __name__ == '__main__':
     main()
+

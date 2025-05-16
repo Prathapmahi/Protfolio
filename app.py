@@ -77,7 +77,7 @@ def home():
             <p style='line-height: 1.6'>{PERSONAL_INFO['about']}</p>
         """, unsafe_allow_html=True)
     with col2:
-        st.image("prathap_photo.jpg", use_container_width=True)
+        st.image("prathap_photo.jpg", use_column_width=True)  # ✅ FIXED
 
 def experience():
     st.markdown("<div class='sub-header'>Work Experience</div>", unsafe_allow_html=True)
@@ -163,4 +163,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
